@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-// const routes = require('./controllers');
+const routes = require('./controllers');
 const session = require('express-session');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 // app.engine('handlebars');
 // app.set('view engine', 'handlebars');
 app.use(session(sess));
-// app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on PORT 3001'));
 })
