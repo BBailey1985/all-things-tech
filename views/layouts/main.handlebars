@@ -1,28 +1,39 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Things Tech</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">All Things Tch</a>
+        <a href="/">All Things Tech</a>
       </h1>
+      <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
     </header>
     <main>
-      {{{ body }}}
+      {{{body}}}
     </main>
     <footer>
-    Thanks for stopping by an have an amazing day!
+      <h2>Have an amazing day!</h2>
     </footer>
   </div>
 
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
